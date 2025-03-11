@@ -1,0 +1,23 @@
+def mergeSort(arr):
+    if len(arr) <= 1:
+        return arr  # Base case: single element is already sorted
+    mid = len(arr) // 2
+    left = mergeSort(arr[:mid])  # Sort left half recursively
+    right = mergeSort(arr[mid:])  # Sort right half recursively
+    return merge(left, right)  # Merge sorted halves
+
+def merge(left, right):
+    result = []
+    i = 0
+    j = 0
+    while i < len(left) and j < len(right):
+        if left[i] < right[j]:
+            result.append(left[i])
+            i += 1
+        else:
+            result.append(right[j])
+            j += 1
+    # Append remaining elements from either list
+    result += left[i:]
+    result += right[j:]
+    return result
