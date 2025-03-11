@@ -1,0 +1,9 @@
+function insertionSort(arr):
+    for i in range(1, len(arr)):  # Loop through array starting from the second element
+        key = arr[i]  # Store current element as 'key'
+        j = i - 1  # Index of the element to compare with key
+        while j >= 0 and arr[j] > key:  # Shift elements greater than key to the right
+            arr[j + 1] = arr[j]
+            j -= 1
+        arr[j + 1] = key  # Insert key in its correct position
+    return arr
